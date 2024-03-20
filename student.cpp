@@ -199,8 +199,9 @@ int main() {
         case 5:
             updaterecord();
             break;
-            case 6:
+        case 6:
             editbook();
+            break;
         case 7:
             exit(0);
         default:
