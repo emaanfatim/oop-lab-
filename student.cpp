@@ -136,6 +136,32 @@ void updaterecord() {
         cout << "Book not found" << endl;
     }
 }
+// Function for editing book details by book ID
+void editbook() {
+    string bookno;
+    cout << "Enter book ID to edit details: ";
+    cin >> bookno;
+    bool found = false;
+    for (int i = 0; i < total; i++) {
+        if (bookno == book_ID[i]) {
+            found = true;
+            cout << "Enter new details for the book:\n";
+            cout << "\tBook Name: ";
+            cin.ignore(); // Clear input buffer
+            getline(cin, book_name[i]);
+            cout << "\tBook Author: ";
+            getline(cin, book_author[i]);
+            cout << "\tBook Price: ";
+            cin >> book_pr[i];
+            cout << "Book details updated successfully" << endl;
+            break;
+        }
+    }
+    if (!found) {
+        cout << "Book not found" << endl;
+    }
+}
+
 
 // Main function
 int main() {
@@ -173,7 +199,9 @@ int main() {
         case 5:
             updaterecord();
             break;
-        case 6:
+            case 6:
+            editbook();
+        case 7:
             exit(0);
         default:
             cout << "Invalid input" << endl;
